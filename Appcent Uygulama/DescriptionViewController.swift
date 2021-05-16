@@ -27,6 +27,8 @@ class DescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var FURKAN = "FURKAN KARA"
+        
         
         let button = UIButton(type: UIButton.ButtonType.custom)
         button.setImage(UIImage(systemName : "star"), for: .normal)
