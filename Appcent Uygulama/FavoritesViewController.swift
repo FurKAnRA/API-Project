@@ -14,7 +14,11 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-   
+    var NameText = ""
+    var image  = UIImage()
+    var released  = ""
+    var descriptionText = ""
+    var metacritic = ""
   
    
     override func viewDidLoad() {
@@ -43,7 +47,9 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCollectionViewCell", for: indexPath) as! GameCollectionViewCell
      
-        
+        cell.gameİmageView.image = image
+        cell.gameNameLabel.text =  NameText
+        cell.gameReleasedDateLabel.text  = released
            
         return cell
         }

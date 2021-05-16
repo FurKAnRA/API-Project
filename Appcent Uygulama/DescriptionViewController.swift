@@ -17,7 +17,9 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var gameImage: UIImageView!
 
    
-    var id = 0
+
+    
+    
     
   
     
@@ -27,7 +29,7 @@ class DescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var FURKAN = "FURKAN KARA"
+       
         
         
         let button = UIButton(type: UIButton.ButtonType.custom)
@@ -53,7 +55,7 @@ class DescriptionViewController: UIViewController {
       
     
     func getText(id : Int,Name : String, releasedDate : String, rating : Double , url : String){
-        self.id = id
+       
         DispatchQueue.main.async {
             let gamesUrlString = "https://api.rawg.io/api/games/\(id)?key=25cd72109c064d6e95f41ebbdee66f17"
             
@@ -62,7 +64,7 @@ class DescriptionViewController: UIViewController {
            
              let session = URLSession.shared
         
-            let dataTask: Void = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            let _: Void = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
                 
                 DispatchQueue.main.async {
                     do {

@@ -39,7 +39,7 @@ class ViewController: UIViewController , UISearchControllerDelegate , UISearchBa
         searchBar.delegate = self
         
        
-        
+       
         
         filteredData = games
         
@@ -239,13 +239,16 @@ extension ViewController : UICollectionViewDataSource
         }
         
         if(collectionView == collectionView){
-            if(self.filteredData.count == self.games.count)
-            {
-                description.getText(id: self.filteredData[indexPath.row + 3].gameId,Name: self.filteredData[indexPath.row + 3].gameName,releasedDate: self.filteredData[indexPath.row + 3].releasedDate,rating : self.filteredData[indexPath.row + 3].rating,url: self.filteredData[indexPath.row + 3 ].image)
+            DispatchQueue.main.async {
+                if(self.filteredData.count == self.games.count)
+                {
+                    description.getText(id: self.filteredData[indexPath.row + 3].gameId,Name: self.filteredData[indexPath.row + 3].gameName,releasedDate: self.filteredData[indexPath.row + 3].releasedDate,rating : self.filteredData[indexPath.row + 3].rating,url: self.filteredData[indexPath.row + 3 ].image)
+                }
+                else{
+                        description.getText(id:self.filteredData[indexPath.row].gameId,Name: self.filteredData[indexPath.row].gameName,releasedDate: self.filteredData[indexPath.row].releasedDate, rating : self.filteredData[indexPath.row].rating,url: self.filteredData[indexPath.row ].image)
+                }
             }
-            else{
-                    description.getText(id:self.filteredData[indexPath.row].gameId,Name: self.filteredData[indexPath.row].gameName,releasedDate: self.filteredData[indexPath.row].releasedDate, rating : self.filteredData[indexPath.row].rating,url: self.filteredData[indexPath.row ].image)
-            }
+         
         }
    
         
@@ -309,8 +312,10 @@ extension UIImageView{
             }
             
             DispatchQueue.main.async {
+                
                 self.image = UIImage(data: data!)
             }
+            
             
         }).resume()
         
